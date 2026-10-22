@@ -1,0 +1,76 @@
+ <!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="免费 AI 工具箱：绘画提示词、视频提示词、文章与文案灵感生成器。">
+<title>灵感工坊 · AI 工具箱</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#121a2e;--panel2:#18233c;--text:#f4f6ff;--muted:#a9b4ce;--line:#2a3654;--purple:#8b7cff;--cyan:#67e8f9;--green:#86efac}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(ellipse at 15% 0%,#242052 0,transparent 38%),radial-gradient(ellipse at 95% 15%,#10354a 0,transparent 30%),var(--bg);color:var(--text);min-height:100vh}
+a{color:inherit}.wrap{max-width:1120px;margin:auto;padding:24px 18px 56px}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:56px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.2px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),#4f46e5);font-size:22px;box-shadow:0 8px 30px #6d5df566}.navtag{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:12px}
+.hero{text-align:center;max-width:760px;margin:0 auto 34px}.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid #4c4780;background:#171735;border-radius:999px;color:#c7c2ff;font-size:12px}.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.1;letter-spacing:-1.8px;margin:20px 0 16px}.grad{background:linear-gradient(90deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:16px;line-height:1.8;margin:0 auto}.search{max-width:620px;margin:25px auto 0;display:flex;gap:10px;background:#121a2ddd;border:1px solid var(--line);border-radius:16px;padding:7px}.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--text);padding:10px;outline:none}.search button,.primary{border:0;border-radius:11px;padding:12px 17px;background:linear-gradient(135deg,#8b7cff,#5d55e8);color:white;font-weight:700;cursor:pointer}.search button:hover,.primary:hover{filter:brightness(1.12)}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:40px 0 16px}.sectionhead h2{font-size:20px;margin:0}.sectionhead p{font-size:13px;color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.tool{border:1px solid var(--line);border-radius:18px;padding:20px;background:linear-gradient(160deg,#17213aee,#101729ee);text-align:left;color:var(--text);cursor:pointer;transition:.18s;min-height:170px}.tool:hover,.tool.active{transform:translateY(-2px);border-color:#8b7cff;box-shadow:0 12px 35px #0002}.tool.active{background:linear-gradient(160deg,#28234d,#121a2e)}.tool .ico{font-size:25px;margin-bottom:16px}.tool h3{font-size:16px;margin:0 0 8px}.tool p{color:var(--muted);font-size:13px;line-height:1.65;margin:0}.panel{margin-top:18px;border:1px solid var(--line);border-radius:22px;background:#10182beF;padding:24px;box-shadow:0 22px 70px #0002}.paneltop{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:18px}.panel h2{font-size:21px;margin:0 0 6px}.paneltop p,.hint{color:var(--muted);font-size:13px;line-height:1.6;margin:0}.pill{font-size:12px;color:#c4b5fd;background:#2a2451;border-radius:999px;padding:7px 10px;white-space:nowrap}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}label{font-size:13px;color:#d9def0;font-weight:650}input,select,textarea{width:100%;background:#0b1222;border:1px solid #34415f;border-radius:11px;color:var(--text);padding:12px 13px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--purple)}textarea{resize:vertical;min-height:100px;line-height:1.65}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.secondary{border:1px solid #3a4766;border-radius:11px;padding:11px 15px;background:#18223a;color:var(--text);font-weight:650;cursor:pointer}.secondary:hover{border-color:#8b7cff}.output{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}.outputhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.outputhead h3{margin:0;font-size:15px}.result{min-height:120px;white-space:pre-wrap;overflow-wrap:anywhere;background:#0a1120;border:1px solid #2b3855;border-radius:12px;padding:15px;color:#e4e9fb;font-size:14px;line-height:1.8}.notice{color:var(--muted);font-size:12px;line-height:1.7;margin-top:12px}.footer{text-align:center;color:#7e8aa8;font-size:12px;margin-top:38px;line-height:1.8}.hidden{display:none!important}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{margin-bottom:38px}.hero h1{letter-spacing:-1px}.sectionhead{align-items:start;flex-direction:column}.panel{padding:18px}}
+@media(max-width:480px){.wrap{padding:17px 12px 40px}.grid{gap:9px}.tool{padding:14px;min-height:155px}.tool .ico{margin-bottom:10px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.paneltop{flex-direction:column}.search{padding:5px}.search button{padding:10px 12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <div class="brand"><div class="logo">✦</div><span>灵感工坊 <span style="color:#9ea9c6;font-weight:500">/ AI 工具箱</span></span></div>
+    <div class="navtag">✧ 免费体验 · 无需登录</div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">✦ 把灵感变成作品</div>
+    <h1>你的创意，<span class="grad">从这里开始。</span></h1>
+    <p>一站式创作小工具，帮你整理想法、生成提示词、开启灵感。<br>轻量、简单，手机和电脑都能使用。</p>
+    <div class="search"><input id="searchInput" type="search" placeholder="搜索工具，例如：视频提示词"><button id="searchBtn">搜索工具</button></div>
+  </section>
+
+  <div class="sectionhead"><h2>探索创作工具</h2><p>选择一个工具，填写想法并生成结果</p></div>
+  <section class="grid" id="toolGrid">
+    <button class="tool active" data-tool="image"><div class="ico">🎨</div><h3>绘画提示词</h3><p>把画面想法整理成更完整的图像描述。</p></button>
+    <button class="tool" data-tool="video"><div class="ico">🎬</div><h3>视频提示词</h3><p>补充镜头、动作、光线与画面节奏。</p></button>
+    <button class="tool" data-tool="article"><div class="ico">✍️</div><h3>文章写作助手</h3><p>规划文章结构，快速整理写作方向。</p></button>
+    <button class="tool" data-tool="copy"><div class="ico">💬</div><h3>社交文案助手</h3><p>生成适合分享、介绍与推广的文案草稿。</p></button>
+  </section>
+
+  <section class="panel" id="toolPanel">
+    <div class="paneltop"><div><h2 id="panelTitle">🎨 绘画提示词生成器</h2><p id="panelDesc">描述你想看到的画面，工具会将想法整理成结构化提示词。</p></div><span class="pill">本地模板生成</span></div>
+    <div class="fields">
+      <div class="field full"><label for="idea">你的创意 / 主题</label><textarea id="idea" placeholder="例如：雨后的京都古街，暖黄色灯笼，电影感，广角摄影……"></textarea></div>
+      <div class="field"><label for="style">风格</label><select id="style"><option>电影级写实</option><option>国风仙侠 CG</option><option>动漫插画</option><option>极简现代</option><option>复古胶片</option><option>科幻未来</option><option>自然摄影</option></select></div>
+      <div class="field"><label for="ratio">画面比例</label><select id="ratio"><option>16:9 横屏</option><option>9:16 竖屏</option><option>1:1 正方形</option><option>4:3 传统画幅</option><option>3:2 摄影画幅</option></select></div>
+      <div class="field" id="detailField"><label for="detail">补充要求</label><input id="detail" placeholder="例如：细腻光影、自然姿态、清晰细节"></div>
+      <div class="field" id="toneField"><label for="tone">表达方式</label><select id="tone"><option>清晰、具体、有层次</option><option>简洁直接</option><option>氛围感强</option><option>专业、细致</option><option>轻松、有趣</option></select></div>
+    </div>
+    <div class="actions"><button class="primary" id="generateBtn">✦ 生成内容</button><button class="secondary" id="clearBtn">清空</button><button class="secondary" id="exampleBtn">填入示例</button></div>
+    <div class="output"><div class="outputhead"><h3>生成结果</h3><button class="secondary" id="copyBtn">复制结果</button></div><div class="result" id="result" aria-live="polite">你的生成结果会显示在这里。</div><p class="notice" id="notice">说明：这是无需 API 的本地模板工具，不会把输入发送到服务器。生成内容可继续复制到你喜欢的 AI 平台使用。</p></div>
+  </section>
+  <footer class="footer">灵感工坊 · AI 工具箱<br>免费创作小工具 · 当前版本使用本地模板，不代表已连接 AI 大模型</footer>
+</div>
+<script>
+const configs = {
+ image:{title:"🎨 绘画提示词生成器",desc:"描述你想看到的画面，工具会将想法整理成结构化提示词。",placeholder:"例如：雨后的京都古街，暖黄色灯笼，电影感，广角摄影……",label:"补充要求",detail:"例如：细腻光影、自然姿态、清晰细节",example:"雨后的京都祇园古街，暖黄色纸灯笼，石板路倒映灯光，薄雾与安静氛围",base:"请创作一幅画面，主题为：",extra:"画面风格：",end:"构图要求：画面主体明确，前中后景有层次，光影自然，材质细节丰富，画面协调。"},
+ video:{title:"🎬 视频提示词生成器",desc:"补充动作连续性、镜头语言、环境变化与光线，让视频描述更清楚。",placeholder:"例如：古风女剑客在山巅拔剑，衣袂随风，镜头缓慢推进……",label:"动作 / 镜头补充",detail:"例如：动作连贯、镜头稳定、自然运动模糊",example:"国风仙侠女剑客在云雾山巅缓缓拔剑，衣袂与发丝随风摆动",base:"生成一段以以下内容为核心的视频：",extra:"视觉风格：",end:"镜头设计：动作起止清晰，人物外观保持一致，运动符合物理规律，环境与光线连续，避免肢体变形、闪烁、穿模和突然跳切。"},
+ article:{title:"✍️ 文章写作助手",desc:"把主题、读者与目标整理成可执行的文章写作大纲。",placeholder:"例如：写一篇介绍零基础如何制作个人网站的文章……",label:"文章补充要求",detail:"例如：举例说明、分步骤、避免太多术语",example:"零基础如何免费制作个人网站，面向没有编程经验的新手",base:"请围绕以下主题撰写文章方案：",extra:"写作风格：",end:"请先给出一个吸引人的标题、清晰的大纲、每部分的核心要点和一个简短开头。内容要准确、易懂、结构清晰；不确定的信息请标注核实，不要编造事实。"},
+ copy:{title:"💬 社交文案助手",desc:"为分享、产品介绍或社交平台准备一份可继续编辑的文案草稿。",placeholder:"例如：介绍一个方便新手使用的免费 AI 工具箱……",label:"文案补充要求",detail:"例如：自然、不夸大、带一个行动建议",example:"介绍一个免费 AI 工具箱网站，邀请新手体验绘画与视频提示词工具",base:"请为以下主题创作文案：",extra:"表达风格：",end:"请输出一个自然、有吸引力但不夸大效果的版本。开头简洁，突出实际用途，最后加入合适的行动建议。不要虚构价格、数据、用户评价或不存在的功能。"}
+};
+let current="image";
+const $=id=>document.getElementById(id);
+function selectTool(name){current=name;document.querySelectorAll(".tool").forEach(b=>b.classList.toggle("active",b.dataset.tool===name));const c=configs[name];$("panelTitle").textContent=c.title;$("panelDesc").textContent=c.desc;$("idea").placeholder=c.placeholder;$("detailField").querySelector("label").textContent=c.label;$("detail").placeholder=c.detail;$("result").textContent="你的生成结果会显示在这里。";$("idea").focus({preventScroll:true});}
+document.querySelectorAll(".tool").forEach(b=>b.addEventListener("click",()=>selectTool(b.dataset.tool)));
+function generate(){const idea=$("idea").value.trim();if(!idea){$("result").textContent="请先填写你的创意或主题，再点击生成内容。";$("idea").focus();return;}const c=configs[current],style=$("style").value,ratio=$("ratio").value,detail=$("detail").value.trim(),tone=$("tone").value;let out="";
+if(current==="article"||current==="copy"){out=`${c.base}${idea}\n\n${c.extra}${tone}\n补充要求：${detail||"面向普通读者，表达自然、清晰"}\n\n${c.end}`;}
+else{out=`${c.base}${idea}\n\n${c.extra}${style}\n画面比例：${ratio}\n表达方式：${tone}\n补充细节：${detail||"主体清晰，细节自然，画面协调"}\n\n${c.end}`;}
+$("result").textContent=out;$("notice").textContent="已在当前浏览器本地生成，无需 API。可复制结果到你使用的绘图、视频或写作 AI 工具中。"}
+$("generateBtn").addEventListener("click",generate);
+$("clearBtn").addEventListener("click",()=>{$("idea").value="";$("detail").value="";$("result").textContent="已清空。输入新的创意后即可生成。";});
+$("exampleBtn").addEventListener("click",()=>{$("idea").value=configs[current].example;$("detail").value=current==="video"?"动作连贯、镜头平稳、光线连续":current==="image"?"自然光影、材质细腻、构图有层次":"内容清晰、结构完整、自然易读";$("idea").focus();});
+$("copyBtn").addEventListener("click",async()=>{const value=$("result").textContent;if(!value||value==="你的生成结果会显示在这里。"){ $("notice").textContent="请先生成内容，再复制。";return;}try{await navigator.clipboard.writeText(value);$("notice").textContent="复制成功！可以粘贴到其他应用中。";}catch(e){const ta=document.createElement("textarea");ta.value=value;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");$("notice").textContent="复制成功！可以粘贴到其他应用中。";}catch(err){$("notice").textContent="自动复制失败，请手动选中结果并复制。";}ta.remove();}});
+function searchTools(){const q=$("searchInput").value.trim().toLowerCase();let first=null;document.querySelectorAll(".tool").forEach(b=>{const show=!q||b.innerText.toLowerCase().includes(q)||({"image":"绘画图片提示词","video":"视频动画镜头","article":"文章写作","copy":"文案社交"}[b.dataset.tool]).includes(q);b.classList.toggle("hidden",!show);if(show&&!first)first=b;});if(first&&q)selectTool(first.dataset.tool);if(q&&!first)$("panelDesc").textContent="没有找到匹配工具。试试“绘画”“视频”“文章”或“文案”。";else $("panelDesc").textContent=configs[current].desc;}
+$("searchBtn").addEventListener("click",searchTools);$("searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")searchTools();});
+</script>
+</body>
+</html>
